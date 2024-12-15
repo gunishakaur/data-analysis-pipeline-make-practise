@@ -62,13 +62,15 @@ Render the report
 
 ```
 quarto render report/count_report.qmd
-
 ```
 
 ### Exercise:
 
 Your task is to add a data analysis pipeline using a shell/bash script! It should accomplish the same task as outlined in the README.md file when you type:
-`bash runall.sh`.
+
+```
+bash runall.sh.
+```
 
 It should reset the analysis the starting point 
 (the state when you first copied this repo)
