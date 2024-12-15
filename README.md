@@ -24,17 +24,51 @@ Activate the conda environment:
 conda activate da-pipeline-make
 ```
 
-Run the analysis:
+Count the words:
 
 ```
-bash runall.sh
+python scripts/wordcount.py \
+    --input_file=data/isles.txt \
+    --output_file=results/isles.dat
+python scripts/wordcount.py \
+    --input_file=data/abyss.txt \
+    --output_file=results/abyss.dat
+python scripts/wordcount.py \
+    --input_file=data/last.txt \
+    --output_file=results/last.dat
+python scripts/wordcount.py \
+    --input_file=data/sierra.txt \
+    --output_file=results/sierra.dat
+```
+
+Create the plots:
+
+```
+python scripts/plotcount.py \
+    --input_file=results/isles.dat \
+    --output_file=results/figure/isles.png
+python scripts/plotcount.py \
+    --input_file=results/abyss.dat \
+    --output_file=results/figure/abyss.png
+python scripts/plotcount.py \
+    --input_file=results/last.dat \
+    --output_file=results/figure/last.png
+python scripts/plotcount.py \
+    --input_file=results/sierra.dat \
+    --output_file=results/figure/sierra.png
+```
+
+Render the report
+
+```
+quarto render report/count_report.qmd
+
 ```
 
 ### Exercise:
 
-Your task is to add a "smarter" data analysis pipeline using GNU Make!
-It should accomplish the same task as `bash runall.sh` when you type
-`make all`.
+Your task is to add a data analysis pipeline using a shell/bash script! It should accomplish the same task as outlined in the README.md file when you type:
+`bash runall.sh`.
 
 It should reset the analysis the starting point 
 (the state when you first copied this repo)
